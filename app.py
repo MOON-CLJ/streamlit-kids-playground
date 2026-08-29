@@ -4,6 +4,7 @@ from collections.abc import Callable
 
 import streamlit as st
 
+from games.memory_match import render as render_memory_match
 from games.number_guess import render as render_number_guess
 
 
@@ -16,6 +17,7 @@ st.set_page_config(
 
 GAMES: dict[str, Callable[[], None]] = {
     "🔢 猜数字": render_number_guess,
+    "🐾 动物记忆翻牌": render_memory_match,
 }
 
 
@@ -33,7 +35,7 @@ def main() -> None:
         )
         st.divider()
         st.markdown("### 给家长的小提示")
-        st.write("每局只需几分钟。可以让孩子先说出理由，再提交答案。")
+        st.write("每局只需几分钟。可以鼓励孩子说出自己的观察和思路。")
         st.caption("更多小游戏可以继续添加到 games/ 目录。")
 
     GAMES[selected_game]()
