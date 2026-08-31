@@ -4,6 +4,7 @@ from collections.abc import Callable
 
 import streamlit as st
 
+from games.math_warrior import render as render_math_warrior
 from games.memory_match import render as render_memory_match
 from games.number_guess import render as render_number_guess
 
@@ -18,6 +19,7 @@ st.set_page_config(
 GAMES: dict[str, Callable[[], None]] = {
     "🔢 猜数字": render_number_guess,
     "🐾 动物记忆翻牌": render_memory_match,
+    "🧮 数学小勇士": render_math_warrior,
 }
 
 
