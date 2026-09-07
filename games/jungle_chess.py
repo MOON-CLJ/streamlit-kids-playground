@@ -316,10 +316,12 @@ def render() -> None:
     else:
         turn_text = f"{PLAYER_LABELS[winner]}获胜！"
 
-    first, second, third = st.columns(3)
-    first.metric("当前状态", turn_text)
-    second.metric("移动次数", f"{move_count} 步")
-    third.metric(
+    st.caption("当前状态")
+    st.subheader(turn_text)
+
+    first, second = st.columns(2)
+    first.metric("移动次数", f"{move_count} 步")
+    second.metric(
         "吃掉棋子",
         f"🔵{len(captured['blue'])} · 🔴{len(captured['red'])}",
     )
